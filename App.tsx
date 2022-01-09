@@ -1,39 +1,9 @@
-import React, { useEffect } from 'react';
-import { View, Button, SafeAreaView, StatusBar, Text } from 'react-native';
-import { ActionTypes } from './redux/actionCreators';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { SearchScreen, SeedScreen, FavoriteScreen, RandomScreen } from './screens'
 
-import { useTypedDispatch, useTypedSelector } from './redux/hooks'
-
-function HomeScreen() {
-        const hoi = useTypedSelector();
-    const dispatch = useTypedDispatch()
-
-    return (
-              <SafeAreaView >
-        <StatusBar barStyle={'dark-content'} />
-        <Text>Hallo</Text>
-        <Button title='Random' onPress={() => {
-              dispatch({type: ActionTypes.COUNTER_CHANGE,
-              payload: Math.random()})
-        }} />
-  <Button title='RESET' onPress={() => {
-              dispatch({type: ActionTypes.COUNTER_RESET})
-        }} />
-      </SafeAreaView>
-    );
-  }
-
-  function SettingsScreen() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
-      </View>
-    );
-  }
-  
-  
   const Tab = createBottomTabNavigator();
   
   function App() {
@@ -41,26 +11,30 @@ function HomeScreen() {
         <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused, color, size }) => {
-              let iconName;
-  
-              if (route.name === 'Home') {
-                iconName = focused
-                  ? 'ios-information-circle'
-                  : 'ios-information-circle-outline';
-              } else if (route.name === 'Settings') {
-                iconName = focused ? 'ios-list-box' : 'ios-list';
-              }
-  
-              // You can return any component that you like here!
-              return <View style={{backgroundColor: color, width: size, height: size}}/>
+            tabBarIcon: ({ focused, size }) => {
+             const color = focused ? 'blue' : 'grey'
+                
+                switch (route.name) {
+                    case 'Random':
+                        return <Icon name="shuffle" size={size} color={color}/>
+                    case 'Search':
+                        return <Icon name="search" size={size} color={color}/>
+                    case 'Favorite':
+                        return <Icon name="favorite-border" size={size} color={color}/>
+                    case 'Seed':
+                        return <Icon name="loupe" size={size} color={color}/>
+                    default:
+                        return <Icon name="error" size={size} color="blue"/>
+                }
             },
             tabBarActiveTintColor: 'blue',
             tabBarInactiveTintColor: 'gray',
           })}
         >
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Settings" component={SettingsScreen} />
+          <Tab.Screen name="Random" component={RandomScreen} />
+          <Tab.Screen name="Search" component={SearchScreen} />
+          <Tab.Screen name="Favorite" component={FavoriteScreen} />
+          <Tab.Screen name="Seed" component={SeedScreen} />
         </Tab.Navigator>
       </NavigationContainer>
     );
