@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
-  SearchScreen, SeedScreen, FavoritesScreen, RandomScreen,
+  SearchScreen, SeedScreen, FavoritesScreen, RandomScreen, DetailsScreen,
 } from './screens';
 
 const Tab = createBottomTabNavigator();
@@ -26,6 +26,8 @@ function App() {
                 return <Icon name="favorite-border" size={size} color={color} />;
               case 'Seed':
                 return <Icon name="loupe" size={size} color={color} />;
+              case 'Details':
+                return <Icon name="info" size={size} color={color} />;
               default:
                 return <Icon name="error" size={size} color="blue" />;
             }
@@ -38,6 +40,7 @@ function App() {
         <Tab.Screen name="Search" component={SearchScreen} />
         <Tab.Screen name="Favorites" component={FavoritesScreen} />
         <Tab.Screen name="Seed" component={SeedScreen} />
+        <Tab.Screen name="Details" component={DetailsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

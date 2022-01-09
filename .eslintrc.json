@@ -30,7 +30,9 @@
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": "error",
         "default-param-last": "off",
-        "no-console": ["error", { "allow": ["info"] }] 
+        "no-console": ["error", { "allow": ["info"] }],
+        "max-len": "off",
+        "react/require-default-props": "off"
     },
     "settings": {
         "import/resolver": {

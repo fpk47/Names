@@ -72,4 +72,16 @@ async function getMultipleUsers(amount: number): Promise<Response> {
   }
 }
 
-export { Response, User, getMultipleUsers };
+async function getSeed(seed: string): Promise<Response> {
+  try {
+    const result = await axios.get<void, AxiosResponse<Response>>(`https://randomuser.me/api/?format=json&seed=${seed}`);
+
+    return Promise.resolve(result.data);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+}
+
+export {
+  Response, User, getMultipleUsers, getSeed,
+};

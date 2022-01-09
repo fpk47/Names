@@ -24,6 +24,15 @@ const generalReducer = (state = initialState, action: Actions): RootState => {
 
       return state;
     }
+    case ActionTypes.CHANGE_FAVORITE: {
+      const newState = { ...state };
+
+      if (newState[action.payload]) {
+        newState[action.payload].favorite = !newState[action.payload].favorite;
+      }
+
+      return newState;
+    }
     case ActionTypes.REMOVE_FAVORITES: {
       const newState = { ...state };
 
@@ -31,11 +40,7 @@ const generalReducer = (state = initialState, action: Actions): RootState => {
         newState[key].favorite = false;
       });
 
-      if (JSON.stringify(newState) !== JSON.stringify(state)) {
-        return newState;
-      }
-
-      return state;
+      return newState;
     }
     case ActionTypes.RESET: {
       return initialState;
