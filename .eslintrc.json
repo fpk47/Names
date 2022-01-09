@@ -25,12 +25,12 @@
         "import/extensions": "off",
         "no-undef": "off",
         "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": "error",
         "no-shadow": "off",
         "@typescript-eslint/no-shadow": "error",
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": "error",
-        "default-param-last": "off"
+        "default-param-last": "off",
+        "no-console": ["error", { "allow": ["info"] }] 
     },
     "settings": {
         "import/resolver": {

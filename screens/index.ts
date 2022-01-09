@@ -1,8 +1,9 @@
-import { FavoriteScreen } from './FavoriteScreen';
+import { FavoritesScreen } from './FavoritesScreen';
 import { RandomScreen } from './RandomScreen';
 import { SearchScreen } from './SearchScreen';
 import { SeedScreen } from './SeedScreen';
+import { DetailScreen } from './DetailScreen';
 
 export {
-  FavoriteScreen, RandomScreen, SearchScreen, SeedScreen,
+  FavoritesScreen, RandomScreen, SearchScreen, SeedScreen, DetailScreen,
 };

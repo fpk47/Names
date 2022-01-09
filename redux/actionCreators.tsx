@@ -1,19 +1,24 @@
 import { Action } from 'redux';
+import { Response } from '../libs/randomUser';
 
 enum ActionTypes {
-    COUNTER_CHANGE = 'COUNTER_CHANGE',
-    COUNTER_RESET = 'COUNTER_RESET',
+    ADD_USERS = 'ADD_USERS',
+    REMOVE_FAVORITES = 'REMOVE_FAVORITES',
+    RESET = 'RESET',
 }
 
-interface CounterChange extends Action {
-    type: ActionTypes.COUNTER_CHANGE;
-    payload: number;
+interface AddUsers extends Action {
+    type: ActionTypes.ADD_USERS;
+    payload: Response['results'];
 }
 
-interface CounterReset extends Action {
-    type: ActionTypes.COUNTER_RESET;
+interface RemoveFavorites extends Action {
+    type: ActionTypes.REMOVE_FAVORITES;
+}
+interface Reset extends Action {
+    type: ActionTypes.RESET;
 }
 
-type Actions = CounterChange | CounterReset;
+type Actions = AddUsers | RemoveFavorites | Reset;
 
 export { ActionTypes, Actions };

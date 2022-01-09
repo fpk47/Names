@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-function FavoriteScreen(): JSX.Element {
+function FavoritesScreen(): JSX.Element {
   return (
     <View>
       <Text>Favorite</Text>
@@ -9,4 +9,4 @@ function FavoriteScreen(): JSX.Element {
   );
 }
 
-export { FavoriteScreen };
+export { FavoritesScreen };
