@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
-  View, Text, StyleSheet, TouchableWithoutFeedback,
+  View, Text, StyleSheet, TouchableWithoutFeedback, Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -25,7 +25,14 @@ function Item({
   return (
     <TouchableWithoutFeedback onPress={() => navigation.navigate('Details', { uuid })}>
       <View style={styles.container}>
-        <View style={styles.pictureContainer} />
+        <View style={styles.pictureContainer}>
+          <Image
+            style={styles.image}
+            source={{
+              uri: imageUrl,
+            }}
+          />
+        </View>
         <View style={styles.nameContainer}>
           <Text>{firstName}</Text>
           <Text>{lastName}</Text>
@@ -70,6 +77,10 @@ const styles = StyleSheet.create({
     width: 32,
     height,
     justifyContent: 'center',
+  },
+  image: {
+    width: '100%',
+    height: '100%',
   },
 });
 
