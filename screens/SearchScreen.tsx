@@ -49,6 +49,7 @@ function SearchScreen(): JSX.Element {
           onChangeText={setSearchParam}
           value={searchParam}
           placeholder="search for first name, last name, email..."
+          placeholderTextColor="black"
         />
       </View>
       <View style={styles.buttonContainer}>
@@ -113,6 +114,7 @@ const styles = StyleSheet.create({
   },
   noDataText: {
     fontSize: 30,
+    color: 'black',
   },
   textInput: {
     height: 40,
@@ -120,6 +122,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 4,
     padding: 8,
+    color: 'black',
   },
 });
 

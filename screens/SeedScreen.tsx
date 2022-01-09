@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  View, StyleSheet, TextInput,
+  View, StyleSheet, TextInput, Text,
 } from 'react-native';
 import { Item } from '../components';
 import { getSeed, User } from '../libs/randomUser';
@@ -46,11 +46,12 @@ function SeedScreen(): JSX.Element {
           style={styles.textInput}
           onChangeText={setSearchParam}
           value={searchParam}
-          placeholder="search here.."
+          placeholder="provide seed..."
+          placeholderTextColor="black"
         />
       </View>
 
-      {user && (
+      {user && !!searchParam && (
       <Item
         onPressFavorite={() => {
           dispatch({ type: ActionTypes.CHANGE_FAVORITE, payload: user.login.uuid });
@@ -64,8 +65,12 @@ function SeedScreen(): JSX.Element {
         favorite={favorite}
       />
       )}
+      {!searchParam && (
+        <View style={styles.noDataContainer}>
+          <Text style={styles.noDataText}>No Query yet!</Text>
+        </View>
+      )}
     </View>
-
   );
 }
 
@@ -87,6 +92,7 @@ const styles = StyleSheet.create({
   },
   noDataText: {
     fontSize: 30,
+    color: 'black',
   },
   textInput: {
     height: 40,
@@ -94,6 +100,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 4,
     padding: 8,
+    color: 'black',
   },
 });
 

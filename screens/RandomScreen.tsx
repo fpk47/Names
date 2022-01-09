@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
   },
   noDataText: {
     fontSize: 30,
+    color: 'black',
   },
 });
 

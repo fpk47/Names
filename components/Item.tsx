@@ -34,9 +34,9 @@ function Item({
           />
         </View>
         <View style={styles.nameContainer}>
-          <Text>{firstName}</Text>
-          <Text>{lastName}</Text>
-          <Text>{email}</Text>
+          <Text style={styles.text}>{firstName}</Text>
+          <Text style={styles.text}>{lastName}</Text>
+          <Text style={styles.text}>{email}</Text>
         </View>
         <TouchableWithoutFeedback onPress={() => {
           onPressFavorite();
@@ -81,6 +81,9 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
+  },
+  text: {
+    color: 'black',
   },
 });
 

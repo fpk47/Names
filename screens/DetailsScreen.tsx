@@ -43,7 +43,7 @@ function DetailsScreen({ route }): JSX.Element {
       </View>
       )}
       <ScrollView>
-        <Text>{JSON.stringify(user, null, 2)}</Text>
+        <Text style={styles.text}>{JSON.stringify(user, null, 2)}</Text>
       </ScrollView>
     </View>
   );
@@ -52,6 +52,9 @@ function DetailsScreen({ route }): JSX.Element {
 const styles = StyleSheet.create({
   container: {
     padding: 8,
+  },
+  text: {
+    color: 'black',
   },
 });
 
