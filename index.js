@@ -1,17 +1,19 @@
 import { AppRegistry } from 'react-native';
 import React from 'react';
+import { Provider } from 'react-redux';
 import App from './App';
 import { name } from './app.json';
-import { Provider } from 'react-redux';
 
-import { configureStore } from './redux/store'
+import { configureStore } from './redux/store';
 
-const store = configureStore()
+const store = configureStore();
 
-const ReduxWrapper = () => (
-  <Provider store = { store }>
-    <App />
-  </Provider>
-)
+function ReduxWrapper() {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+}
 
 AppRegistry.registerComponent(name, () => ReduxWrapper);

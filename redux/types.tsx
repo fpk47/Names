@@ -2,4 +2,4 @@ interface RootState {
     count: number;
 }
 
-export { RootState }
+export { RootState };
